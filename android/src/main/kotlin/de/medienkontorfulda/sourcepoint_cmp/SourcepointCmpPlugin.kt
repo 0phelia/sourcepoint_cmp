@@ -12,24 +12,6 @@ import android.util.Log
 /** SourcepointCmpPlugin */
 class SourcepointCmpPlugin : FlutterPlugin, ActivityAware  {
 
-    companion object {
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val activity = registrar.activity()
-            Log.d("FooBoo", "registerWith ${activity}")
-            if (activity == null) {
-                // When a background flutter view tries to register the plugin, the registrar has no activity.
-                // We stop the registration process as this plugin is foreground only.
-                return;
-            }
-
-            Log.d("FooBoo", "registerWith ${activity}")
-            val interstitialChannel = MethodChannel(registrar.messenger(), "sourcepoint_cmp")
-            interstitialChannel.setMethodCallHandler(SourcepointCmp(activity, interstitialChannel, activity))
-
-        }
-    }
-
     private var pluginBinding: FlutterPlugin.FlutterPluginBinding? = null
 
 
