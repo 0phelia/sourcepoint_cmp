@@ -14,16 +14,14 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry
+import android.content.Context
 
 
-class SourcepointCmp(registrar: PluginRegistry.Registrar, private val channel: MethodChannel, private val activity: Activity) :
-        MethodChannel.MethodCallHandler {
+class SourcepointCmp(private val context: Context, private val channel: MethodChannel, private val activity: Activity) :
+    MethodChannel.MethodCallHandler {
 
     private val TAG = "**MainActivity"
     private var mainViewGroup: ViewGroup? = null
-    private var context = registrar.context();
-
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
