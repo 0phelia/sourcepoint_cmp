@@ -1,3 +1,7 @@
+## 0.0.5
+
+* migrate to Embedding v2
+
 ## 0.0.4
 
 * stop the registration process in background
